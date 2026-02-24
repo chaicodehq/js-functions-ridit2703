@@ -23,7 +23,7 @@
  * @param {number} [quantity=1] - Number of dosas
  * @param {boolean} [isSpicy=false] - Add spicy for Rs 10 extra
  * @returns {{ type: string, quantity: number, pricePerDosa: number, total: number } | null}
- *
+ 
  * @example
  *   calculateDosaOrder("masala", 2, true)
  *   // => { type: "masala", quantity: 2, pricePerDosa: 70, total: 140 }
@@ -33,4 +33,26 @@
  */
 export function calculateDosaOrder(type, quantity = 1, isSpicy = false) {
   // Your code here
+  if(typeof type !== "string" || typeof quantity!=="number"||quantity<=0 || Number.isNaN(quantity) ) {
+    return null
+
+  }
+  let dosaPrices={
+    plain:40,
+    masala:60,
+    onion:50,
+    butter:70,
+    paper:90,
+    cheese:80
+  }
+  if (!(type in dosaPrices)) return null;
+  const basePrice=dosaPrices[type];
+  const pricePerDosa=isSpicy?basePrice+10:basePrice;
+  const total=pricePerDosa*quantity;
+  return{
+    type,quantity,pricePerDosa,total
+  }
+  
+  
+  
 }

@@ -5,11 +5,16 @@
   "type": "module",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
     "test:win": "set NODE_OPTIONS=--experimental-vm-modules&& jest",
     "test:win:watch": "set NODE_OPTIONS=--experimental-vm-modules&& jest --watchAll"
   },
-  "keywords": ["javascript", "functions", "lab", "education"],
+  "keywords": [
+    "javascript",
+    "functions",
+    "lab",
+    "education"
+  ],
   "license": "MIT",
   "devDependencies": {
     "jest": "^29.7.0"
